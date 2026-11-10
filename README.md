@@ -129,8 +129,7 @@ Busca inteligentes de modelos por texto livre, fabricante ou filtros técnicos.
       "cpuGhz": 4.74,
       "telaPolegadas": 6.9,
       "resolucao": "1440x3120",
-      "notaGeral": 9.2,
-      "urlReferencia": "https://www.tudocelular.com/Samsung/fichas-tecnicas/n10320/Samsung-Galaxy-S26-Ultra.html"
+      "notaGeral": 9.2
     }
   ]
 }

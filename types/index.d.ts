@@ -93,7 +93,6 @@ export interface FichaCatalogoItem {
   telaPolegadas: number;
   resolucao: string;
   notaGeral: number;
-  urlReferencia?: string;
 }
 
 export interface BuscaOptions {

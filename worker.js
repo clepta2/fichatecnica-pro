@@ -197,13 +197,13 @@ export default {
         }
       }
 
-      // Fallback para URL estruturada
+      // Fallback para rota interna oficial da API
       return jsonResponse({
         ok: true,
         nid,
-        url: `https://www.tudocelular.com/Mobile/fichas-tecnicas/${nid}/`,
+        url: `/api/ficha-foto?nid=${nid}&raw=1`,
         cached: false,
-        source: 'edge-proxy'
+        source: 'api-gateway'
       });
     }
 
