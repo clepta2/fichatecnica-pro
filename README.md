@@ -99,7 +99,8 @@ x-api-key: ft_live_SEU_TOKEN_AQUI
 
 ## 📡 Documentação Completa dos Endpoints
 
-Base URL Oficial de Borda: `https://api.ozpro.com.br` (ou conforme provisionamento do seu subdomínio).
+Base URL Oficial de Borda (Cloudflare Anycast):  
+`https://fichatecnica-pro-api.fichatecnica-api.workers.dev`
 
 ### 1. `GET /api/fichas/busca`
 Busca inteligentes de modelos por texto livre, fabricante ou filtros técnicos.
