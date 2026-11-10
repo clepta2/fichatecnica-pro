@@ -1,0 +1,18 @@
+name = "fichatecnica-pro-api"
+main = "worker.js"
+compatibility_date = "2026-10-01"
+account_id = "bc4b376a696e3280f28cf5df7fc0ff88"
+
+# Pipeline de Fotos em Alta Resolução (Cloudflare R2 Bucket)
+[[r2_buckets]]
+binding = "FICHAS_R2"
+bucket_name = "fichatecnica-fotos"
+
+[observability]
+enabled = true
+
+[vars]
+ENVIRONMENT = "production"
+API_VERSION = "1.0.0"
+MARKETPLACE_URL = "https://ponte.ozpro.com.br"
+DEFAULT_CACHE_TTL = "86400"

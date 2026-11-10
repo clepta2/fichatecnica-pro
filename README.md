@@ -291,6 +291,36 @@ Contrate em segundos via PIX dinâmico com ativação imediata no painel:
 
 ---
 
+## 🌐 Infraestrutura Cloudflare Edge CDN & Deploy Automático
+
+A API FichaTecnica Pro roda nativamente na infraestrutura de borda da **Cloudflare** através de Workers, R2 Storage e cache global Anycast em mais de 300 data centers pelo mundo.
+
+### 1. Inclusão Direta via CDN no Navegador
+Para sites e e-commerces que dispensam empacotadores (Node/Webpack/Vite):
+
+```html
+<!-- CDN de Alta Velocidade Cloudflare -->
+<script src="https://cdn.ozpro.com.br/fichatecnica-pro.min.js"></script>
+<script>
+  const ft = new FichaTecnicaPro({ apiKey: 'ft_live_SEU_TOKEN_AQUI' });
+  ft.obter('10320').then(ficha => console.log(ficha));
+</script>
+```
+
+### 2. Configuração do Cloudflare Worker (`wrangler.toml`)
+O arquivo `wrangler.toml` incluído no repositório está configurado para a conta Cloudflare oficial:
+- **Account ID:** `bc4b376a696e3280f28cf5df7fc0ff88`
+- **R2 Bucket:** `fichatecnica-fotos` (Pipeline de fotos dos aparelhos)
+- **Cache-Control:** `public, max-age=86400, s-maxage=604800` (Respostas sub-50ms)
+
+### 3. Deploy Contínuo via GitHub Actions
+O repositório conta com o pipeline automatizado em `.github/workflows/deploy.yml`. A cada `push` na branch `main`:
+1. O GitHub Actions roda em container Ubuntu;
+2. Autentica na Cloudflare via secrets criptografados `CLOUDFLARE_API_TOKEN` e `CLOUDFLARE_ACCOUNT_ID`;
+3. Faz o deploy do Worker e da camada CDN com zero downtime.
+
+---
+
 ## 🛡️ Segurança & Confiabilidade
 
 * **Isolamento de Infraestrutura:** Dados hospedados em Cloudflare Workers com proteção nativa contra DDoS e web scraping não autorizado.
